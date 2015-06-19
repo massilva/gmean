@@ -1,6 +1,8 @@
-mean-stack
-==========
+# gmean
 
-Código fonte do artigo no blog da Caelum "Conhecendo a stack MEAN: MongoDB, Express, Angular e Node."
+Gulp + MongoDB + Express + Angular + Node
 
-Rode 'npm install' para baixar os módulos necessários
+Source code based on paper publishing at Caelum blog "Conhecendo a stack MEAN: MongoDB, Express, Angular e Node."
+
+In project repository run:
+	gulp
