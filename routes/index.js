@@ -1,10 +1,9 @@
-
 /*
  * GET home page.
  */
-
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/post');
+
 var Schema = mongoose.Schema;
 
 var contatoSchema = new Schema({
@@ -18,14 +17,13 @@ var conexoes = 0;
 exports.index = function(req, res){
 	conexoes++;
 	console.log(conexoes);
-	res.render('index', { title: 'Express' });
+	res.render('index', { title: 'Criando aplicação GMEAN' });
 };
 
 exports.adicionaContato = function(req, res) {
 	var contato = new Contato(req.body);
 	contato.save(function(error, contato) {
 		if(error) res.send(500);
-
 		res.send(201);
 	});
 }
@@ -33,7 +31,6 @@ exports.adicionaContato = function(req, res) {
 exports.listaContatos = function(req, res) {
 	Contato.find({}, function(error, contatos) {
 		if(error) res.send(500);
-
 		res.json({ contatos: contatos });
 	});
 }

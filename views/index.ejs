@@ -1,40 +1,35 @@
 <!DOCTYPE html>
 <html ng-app>
-  <head>
-    <title><%= title %></title>
-    <link rel="stylesheet" href="/stylesheets/bootstrap.css" />
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-
-  	<section ng-controller="ContatosController">
-
-	    <h1>Salvar contatos</h1>
-	    <form class="form-inline" ng-submit='adicionaContato()'>
-	    	<div class="form-group">  	
-	    		<input type='text' placeholder='Nome' class="form-control" ng-model='contato.nome'/>
-	    	</div>
-	    	<div class="form-group">
-	    		<input type='tel' placeholder='Telefone' class="form-control" ng-model='contato.telefone'/>
-	    	</div>
-	    		<button type='submit' class='btn btn-primary'>Salvar</button>
-	    </form>
-
-	    <h1>Contatos</h1>
-	    <table class="table table-striped">
-	    	<tr>
-	    		<th>Nome</th>
-	    		<th>Telefone</th>
-	    	</tr>
-	    	<tr ng-repeat='contato in contatos'>
-	    		<td>{{contato.nome}}</td>
-	    		<td>{{contato.telefone}}</td>
-	    	</tr>
-	    </table>
-
-	</section>
-
-	<script src="/javascripts/angular.js"></script>
-	<script src="/javascripts/ContatosController.js"></script>
-  </body>
+	<head>
+		<title><%= title %></title>
+		<link rel="stylesheet" href="/styles/bootstrap.css" />
+		<link rel="stylesheet" href="/styles/styles.css" />
+	</head>
+	<body>
+		<section ng-controller="ContatosController">
+			<h1>Salvar contatos</h1>
+			<form class="form-inline" ng-submit='adicionaContato()'>
+				<div class="form-group">  	
+					<input type='text' placeholder='Nome' class="form-control" ng-model='contato.nome'/>
+				</div>
+				<div class="form-group">
+					<input type='tel' pattern='[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}' placeholder='+00(00)0000-0000' class="form-control" ng-model='contato.telefone'/>
+				</div>
+					<button type='submit' class='btn btn-primary'>Salvar</button>
+			</form>
+			<h1>Contatos</h1>
+			<table class="table table-striped">
+				<tr>
+					<th>Nome</th>
+					<th>Telefone</th>
+				</tr>
+				<tr ng-repeat='contato in contatos'>
+					<td>{{contato.nome}}</td>
+					<td>{{contato.telefone}}</td>
+				</tr>
+			</table>
+		</section>
+		<script src="/javascripts/angular.js"></script>
+		<script src="/javascripts/ContatosController.js"></script>
+	</body>
 </html>
