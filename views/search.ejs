@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app>
+	<head>
+		<title><%= title %></title>
+		<link rel="stylesheet" href="/styles/bootstrap.css" />
+		<link rel="stylesheet" href="/styles/styles.css" />
+	</head>
+	<body>
+		<section ng-controller="SearchController">
+			<h1>Resultados #<%= q %></h1>
+			<table class="table table-striped">
+				<tr>
+					<th></th>
+					<th>Nome</th>
+					<th>Descrição</th>
+				</tr>
+				<% for(var i=0; i < videos.length; i++) { %>
+				   <tr>
+						<td>
+							<img width="120" height="90" src="<%= videos[i].snippet.thumbnails.default.url %>" />
+						</td>
+						<td><%= videos[i].snippet.title %></td>
+						<td><%= videos[i].snippet.description %></td>
+				   </tr>
+				<% } %>
+			</table>
+		</section>
+		<script src="/javascripts/angular.js"></script>
+		<script src="/javascripts/ContatosController.js"></script>
+	</body>
+</html>
