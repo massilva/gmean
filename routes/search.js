@@ -15,7 +15,7 @@ var videos = {};
 exports.index = function(req, res){
 	conexoes++;
 	console.log(conexoes);
-	var q = "MV Bill";
+	var q = "Emicida";
 	Youtube.search.list({part: 'id, snippet',q: q, maxResults: 10}, function(error, result) {
 		if (error) {
 			console.log(error);

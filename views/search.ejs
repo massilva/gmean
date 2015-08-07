@@ -17,15 +17,30 @@
 				<% for(var i=0; i < videos.length; i++) { %>
 				   <tr>
 						<td>
-							<img width="120" height="90" src="<%= videos[i].snippet.thumbnails.default.url %>" />
+							<a onclick="showVideo('<%=videos[i].id.videoId%>')">
+								<img width="120" height="90" src="<%= videos[i].snippet.thumbnails.default.url %>" />
+							</a>
 						</td>
 						<td><%= videos[i].snippet.title %></td>
 						<td><%= videos[i].snippet.description %></td>
 				   </tr>
 				<% } %>
 			</table>
+			<section id="modal_view_video" class="modal">
+				<iframe width="98%" frameborder="0" allowfullscreen></iframe>
+			</section>
 		</section>
+		<script src="/javascripts/jquery-2.1.4.min.js"></script>
+		<script>
+			var showVideo = function(_videoId){
+				var modal =	$("#modal_view_video");
+				var iframe = modal.find("iframe");
+				iframe.attr("src", "https://www.youtube.com/embed/"+_videoId+"?autoplay=1&rel=0&amp;showinfo=0");
+				iframe.height(modal.height() - 5);
+				modal.show();
+			}
+		</script>
 		<script src="/javascripts/angular.js"></script>
-		<script src="/javascripts/ContatosController.js"></script>
+		<script src="/javascripts/SearchController.js"></script>
 	</body>
 </html>
